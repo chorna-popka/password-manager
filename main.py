@@ -43,15 +43,15 @@ def gen_pwd():
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save():
     site = input_site.get()
-    user = input_email.get()
+    login = input_login.get()
     pwd = input_pwd.get()
 
-    if is_valid(site, user, pwd):
+    if is_valid(site, login, pwd):
         is_ok = messagebox.askokcancel(title="Please confirm",
-                                       message=f"You entered: \n Site: {site} \n Login: {user} \n "
+                                       message=f"You entered: \n Site: {site} \n Login: {login} \n "
                                                f"Password: {pwd} \n Do you want to save?")
         if is_ok:
-            str_save = f"{site} | {user} | {pwd} \n"
+            str_save = f"{site} | {login} | {pwd} \n"
             with open("data.txt", "a") as data_txt:
                 data_txt.write(str_save)
 
@@ -72,7 +72,7 @@ canvas.grid(column=1, row=0)
 
 lbl_01 = Label(text="Website", font=LABEL_FONT)
 lbl_01.grid(column=0, row=1, sticky=E)
-lbl_02 = Label(text="Email/Username", font=LABEL_FONT)
+lbl_02 = Label(text="Login", font=LABEL_FONT)
 lbl_02.grid(column=0, row=2, sticky=E)
 lbl_03 = Label(text="Password", font=LABEL_FONT)
 lbl_03.grid(column=0, row=3, sticky=E)
@@ -82,9 +82,9 @@ lbl_04.grid(column=0, row=5, columnspan=3, pady=10)
 input_site = Entry(width=35)
 input_site.grid(column=1, row=1, columnspan=2)
 input_site.focus()
-input_email = Entry(width=35)
-input_email.grid(column=1, row=2, columnspan=2)
-input_email.insert(0, "kalbust@gmail.com")
+input_login = Entry(width=35)
+input_login.grid(column=1, row=2, columnspan=2)
+input_login.insert(0, "kalbust@gmail.com")
 input_pwd = Entry(width=21)
 input_pwd.grid(column=1, row=3)
 
